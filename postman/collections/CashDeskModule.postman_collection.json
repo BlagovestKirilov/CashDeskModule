@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "c9b2f7ec-6c71-4068-b7e6-ab3fe46e4444",
+		"name": "CashDeskModule",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44157995",
+		"_collection_link": "https://blagovestkirilov-3184443.postman.co/workspace/Blagovest-Kirilov's-Workspace~6fecd81f-5716-4539-8ff5-6374f5738a17/collection/44157995-c9b2f7ec-6c71-4068-b7e6-ab3fe46e4444?action=share&source=collection_link&creator=44157995"
+	},
+	"item": [
+		{
+			"name": "CashBalance",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "FIB-X-AUTH",
+						"value": "{{FIB-X-AUTH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dataFrom\": {{dateFrom}},\r\n    \"cashierName\": {{cashierName}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cash-balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cash-balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WITHDRAWAL 100 BGN",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "FIB-X-AUTH",
+						"value": "{{FIB-X-AUTH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cashierName\": {{cashierName}},\r\n    \"operationType\": {{operationTypeWithdrawal}},\r\n    \"currency\": {{currencyBGN}},\r\n    \"amount\": 100,\r\n    \"denominations\": [\r\n        {\r\n        \"denominationValue\": \"TEN_LEVA\",\r\n        \"quantity\": 5\r\n        },\r\n        {\r\n        \"denominationValue\": \"FIFTY_LEVA\",\r\n        \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cash-operation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cash-operation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WITHDRAWAL 500 EUR",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "FIB-X-AUTH",
+						"value": "{{FIB-X-AUTH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cashierName\": {{cashierName}},\r\n    \"operationType\": {{operationTypeWithdrawal}},\r\n    \"currency\": {{currencyEUR}},\r\n    \"amount\": 500,\r\n    \"denominations\": [\r\n        {\r\n        \"denominationValue\": \"FIFTY_EURO\",\r\n        \"quantity\": 10\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cash-operation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cash-operation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DEPOSIT 600 BGN",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "FIB-X-AUTH",
+						"value": "{{FIB-X-AUTH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cashierName\": {{cashierName}},\r\n    \"operationType\": {{operationTypeDeposit}},\r\n    \"currency\": {{currencyBGN}},\r\n    \"amount\": 600,\r\n    \"denominations\": [\r\n        {\r\n        \"denominationValue\": \"TEN_LEVA\",\r\n        \"quantity\": 10\r\n        },\r\n        {\r\n        \"denominationValue\": \"FIFTY_LEVA\",\r\n        \"quantity\": 10\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cash-operation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cash-operation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DEPOSIT 200 EUR",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "FIB-X-AUTH",
+						"value": "{{FIB-X-AUTH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cashierName\": {{cashierName}},\r\n    \"operationType\": {{operationTypeDeposit}},\r\n    \"currency\": {{currencyEUR}},\r\n    \"amount\": 200,\r\n    \"denominations\": [\r\n        {\r\n        \"denominationValue\": \"TWENTY_EURO\",\r\n        \"quantity\": 5\r\n        },\r\n        {\r\n        \"denominationValue\": \"FIFTY_EURO\",\r\n        \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cash-operation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cash-operation"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
