@@ -199,7 +199,15 @@ public class CashOperationServiceImpl implements com.fibank.cashdeskmodule.servi
 
         BigDecimal expectedAmount = BigDecimal.ZERO;
         for (DenominationDTO dto : denominations) {
-            expectedAmount = expectedAmount.add(DenominationValue.valueOf(dto.getDenominationValue()).getValue()
+            DenominationValue denominationValue;
+            try {
+                denominationValue = DenominationValue.valueOf(dto.getDenominationValue());
+            } catch (IllegalArgumentException e) {
+                logger.error("Denomination value {} is not valid", dto.getDenominationValue());
+                throw new DenominationNotFoundException();
+            }
+
+            expectedAmount = expectedAmount.add(denominationValue.getValue()
                     .multiply(BigDecimal.valueOf(dto.getQuantity())));
         }
 
